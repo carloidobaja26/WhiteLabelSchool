@@ -1,22 +1,27 @@
-import logo from "./logo.svg"
 import "./App.css"
+import Navbar from "./components/Navbar/Navbar"
+import { Routes, Route } from "react-router-dom"
+import Home from "./features/home/Home"
+import Enrollment from "./features/enrollment/Enrollment"
+import Accounts from "./features/accounts/Accounts"
+import Schedule from "./features/schedule/Schedule"
+import Grades from "./features/grades/Grades"
+import Forms from "./features/forms/Forms"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello World!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/enrollment" element={<Enrollment />} />
+        <Route exact path="/accounts" element={<Accounts />} />
+        <Route exact path="/schedule" element={<Schedule />} />
+        <Route exact path="/grades" element={<Grades />} />
+        <Route exact path="/forms" element={<Forms />} />
+      </Routes>
+    </>
   )
 }
 
