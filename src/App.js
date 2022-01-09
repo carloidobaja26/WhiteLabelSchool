@@ -1,16 +1,27 @@
-import logo from "./logo.svg"
 import "./App.css"
-import Home from "./features/home/Home";
-import Schedule from "./features/schedule/Schedule";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from "./components/Navbar/Navbar"
+import { Routes, Route } from "react-router-dom"
+import Home from "./features/home/Home"
+import Enrollment from "./features/enrollment/Enrollment"
+import Accounts from "./features/accounts/Accounts"
+import Schedule from "./features/schedule/Schedule"
+import Grades from "./features/grades/Grades"
+import Forms from "./features/forms/Forms"
+
 function App() {
   return (
-    <Router>
-        <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/schedule' element={<Schedule />}/>
-        </Routes>
-    </Router>
+    <>
+      <Navbar />
+
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/enrollment" element={<Enrollment />} />
+        <Route exact path="/accounts" element={<Accounts />} />
+        <Route exact path="/schedule" element={<Schedule />} />
+        <Route exact path="/grades" element={<Grades />} />
+        <Route exact path="/forms" element={<Forms />} />
+      </Routes>
+    </>
   )
 }
 
