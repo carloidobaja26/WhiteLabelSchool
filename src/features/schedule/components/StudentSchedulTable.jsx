@@ -13,12 +13,14 @@ import Paper from '@mui/material/Paper';
 import { useEffect, useState } from "react";
 
 import * as scheduelHooks from '../../../core/hooks/schedule';
-const cardTable = (scheduletData, isPending, error) => (
+const cardTable = (scheduletData, isPending, error, userDetails) => (
     <React.Fragment>
         <CardContent>
-            <Typography variant="h6" component="h6" gutterBottom style={{fontSize: "18px"}}>
-                Diza, Joseph Cadorna ()
-            </Typography>
+            {userDetails &&
+                <Typography variant="h6" component="h6" gutterBottom style={{ fontSize: "18px" }}>
+                    {`${userDetails[0].LastName}, ${userDetails[0].FirstName} (${userDetails[0].AccountId})` }
+                </Typography>
+            }
             <hr />
             <Box sx={{ minWidth: 275 }}>
                 <Card variant="outlined">
@@ -75,20 +77,28 @@ const StudentScheduleTable = () => {
     const [scheduletData, setScheduletData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+    const [userDetails, setUserDetails] = useState("");
     useEffect(() => {
         fetchData();
         async function fetchData() {
-            let data = await scheduelHooks.fetchData();
-            console.log(data)
-            setScheduletData(data);
+            let userScheduleData = await scheduelHooks.fetchUserSchedule();
+            console.log(userScheduleData)
+            setScheduletData(userScheduleData);
             setIsPending(false);
-            if (data.includes("error")) {
-                setError(data);
+            if (userScheduleData.includes("error")) {
+                setError(userScheduleData);
+            }
+            let userDetailsData = await scheduelHooks.fetchUserDetails();
+            setUserDetails(userDetailsData)
+            debugger;
+            console.log(userDetails)
+            if (userDetailsData.includes("error")) {
+                setError(userScheduleData);
             }
         }
     }, []);
     return (
-        <Card variant="outlined">{cardTable(scheduletData, isPending, error)}</Card>
+        <Card variant="outlined">{cardTable(scheduletData, isPending, error, userDetails)}</Card>
     )
 }
 export default StudentScheduleTable;
