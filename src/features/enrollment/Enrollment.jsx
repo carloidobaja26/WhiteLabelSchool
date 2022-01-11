@@ -1,9 +1,11 @@
 import React from "react"
+import MainContainer from "../../components/main-container/MainContainer"
+import EnrollmentTable from "./components/EnrollmentTable"
 
 const Enrollment = () => {
   return (
     <>
-      <h1>Enrollment</h1>
+      <MainContainer title="Enrollment" children={<EnrollmentTable />} />
     </>
   )
 }

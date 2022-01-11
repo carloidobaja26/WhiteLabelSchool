@@ -1,31 +1,27 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import * as React from "react"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import Typography from "@mui/material/Typography"
+import WhiteCardBox from "../../../components/cards/WhiteCardBox"
+
+const cardContent = (
+  <Typography variant="h6" component="h6" gutterBottom>
+    Memorandum of Agreeement
+  </Typography>
+)
 
 const card = (
-    <React.Fragment>
-        <CardContent>
-            <Typography variant="h6" component="h6" gutterBottom>
-                Diza, Joseph Cadorna ()
-            </Typography>
-            <hr />
-            <Box sx={{ minWidth: 275 }}>
-                <Card variant="outlined">
-                    <CardContent>
-                        <Typography variant="h6" component="h6" gutterBottom>
-                            Memorandum of Agreeement
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
-        </CardContent>
-    </React.Fragment>
-);
+  <React.Fragment>
+    <CardContent>
+      <Typography variant="h6" component="h6" gutterBottom>
+        Diza, Joseph Cadorna ()
+      </Typography>
+      <hr />
+      <WhiteCardBox card={cardContent} />
+    </CardContent>
+  </React.Fragment>
+)
 const StudentInformation = () => {
-    return (
-        <Card variant="outlined">{card}</Card>
-    )
+  return <Card variant="outlined">{card}</Card>
 }
-export default StudentInformation;
+export default StudentInformation
