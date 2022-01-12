@@ -21,7 +21,7 @@ const pages = [
   { name: "Grades", link: "/grades" },
   { name: "Forms", link: "/forms" },
 ]
-const settings = ["Profile", "Logout"]
+const settings = ["Profile", "Change Password", "Logout"]
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null)

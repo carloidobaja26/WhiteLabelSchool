@@ -2,6 +2,7 @@ import * as React from "react"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
+import Box from "@mui/material/Box"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableCell from "@mui/material/TableCell"
@@ -12,52 +13,6 @@ import Paper from "@mui/material/Paper"
 import { useEffect, useState } from "react"
 
 import * as scheduelHooks from "../../../core/hooks/schedule"
-import WhiteCardBox from "../../../components/cards/WhiteCardBox"
-
-const cardContent = (scheduletData, isPending, error, userDetails) => (
-  <TableContainer component={Paper}>
-    <Table sx={{ minWidth: 650 }} aria-label="simple table">
-      <TableHead>
-        <TableRow style={{ backgroundColor: "gray" }}>
-          <TableCell>#</TableCell>
-          <TableCell align="right">Subject Code</TableCell>
-          <TableCell align="right">Description</TableCell>
-          <TableCell align="right">Lec</TableCell>
-          <TableCell align="right">Lab</TableCell>
-          <TableCell align="right">Unit</TableCell>
-          <TableCell align="right">Schedule</TableCell>
-        </TableRow>
-      </TableHead>
-      {isPending && (
-        <Typography variant="h6" component="h6" gutterBottom>
-          Loading ...
-        </Typography>
-      )}
-      {error && (
-        <Typography variant="h6" component="h6" gutterBottom>
-          Error {scheduletData}
-        </Typography>
-      )}
-      <TableBody>
-        {scheduletData &&
-          scheduletData.map((data) => (
-            <TableRow>
-              <TableCell component="th" scope="row">
-                {data.id}
-              </TableCell>
-              <TableCell align="right">{data.SubjectCode}</TableCell>
-              <TableCell align="right">{data.Description}</TableCell>
-              <TableCell align="right">{data.Lec}</TableCell>
-              <TableCell align="right">{data.Lab}</TableCell>
-              <TableCell align="right">{data.Unit}</TableCell>
-              <TableCell align="right">{data.Schedule}</TableCell>
-            </TableRow>
-          ))}
-      </TableBody>
-    </Table>
-  </TableContainer>
-)
-
 const cardTable = (scheduletData, isPending, error, userDetails) => (
   <React.Fragment>
     <CardContent>
@@ -72,9 +27,53 @@ const cardTable = (scheduletData, isPending, error, userDetails) => (
         </Typography>
       )}
       <hr />
-      <WhiteCardBox
-        card={cardContent(scheduletData, isPending, error, userDetails)}
-      />
+      <Box sx={{ minWidth: 275 }}>
+        <Card variant="outlined">
+          <CardContent>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow style={{ backgroundColor: "gray" }}>
+                    <TableCell>#</TableCell>
+                    <TableCell align="right">Subject Code</TableCell>
+                    <TableCell align="right">Description</TableCell>
+                    <TableCell align="right">Lec</TableCell>
+                    <TableCell align="right">Lab</TableCell>
+                    <TableCell align="right">Unit</TableCell>
+                    <TableCell align="right">Schedule</TableCell>
+                  </TableRow>
+                </TableHead>
+                {isPending && (
+                  <Typography variant="h6" component="h6" gutterBottom>
+                    Loading ...
+                  </Typography>
+                )}
+                {error && (
+                  <Typography variant="h6" component="h6" gutterBottom>
+                    Error {scheduletData}
+                  </Typography>
+                )}
+                <TableBody>
+                  {scheduletData &&
+                    scheduletData.map((data) => (
+                      <TableRow>
+                        <TableCell component="th" scope="row">
+                          {data.id}
+                        </TableCell>
+                        <TableCell align="right">{data.SubjectCode}</TableCell>
+                        <TableCell align="right">{data.Description}</TableCell>
+                        <TableCell align="right">{data.Lec}</TableCell>
+                        <TableCell align="right">{data.Lab}</TableCell>
+                        <TableCell align="right">{data.Unit}</TableCell>
+                        <TableCell align="right">{data.Schedule}</TableCell>
+                      </TableRow>
+                    ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </CardContent>
+        </Card>
+      </Box>
     </CardContent>
   </React.Fragment>
 )
@@ -95,7 +94,6 @@ const StudentScheduleTable = () => {
       }
       let userDetailsData = await scheduelHooks.fetchUserDetails()
       setUserDetails(userDetailsData)
-      debugger
       console.log(userDetails)
       if (userDetailsData.includes("error")) {
         setError(userScheduleData)
