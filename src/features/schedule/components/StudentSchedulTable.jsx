@@ -62,10 +62,8 @@ const cardContent = (scheduletData, isPending, error) => (
 const cardTable = (scheduletData, isPending, error) => (
   <React.Fragment>
     <CardContent>
-    <UserHeader />
-      <WhiteCardBox
-        card={cardContent(scheduletData, isPending, error)}
-      />
+      <UserHeader />
+      <WhiteCardBox card={cardContent(scheduletData, isPending, error)} />
     </CardContent>
   </React.Fragment>
 )
@@ -86,9 +84,7 @@ const StudentScheduleTable = () => {
     }
   }, [])
   return (
-    <Card variant="outlined">
-      {cardTable(scheduletData, isPending, error)}
-    </Card>
+    <Card variant="outlined">{cardTable(scheduletData, isPending, error)}</Card>
   )
 }
 export default StudentScheduleTable

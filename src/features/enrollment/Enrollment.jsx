@@ -5,7 +5,10 @@ import EnrollmentTable from "./components/EnrollmentTable"
 const Enrollment = () => {
   return (
     <>
-      <MainContainer title="Enrollment" children={<EnrollmentTable />} />
+      <MainContainer
+        title="Registration S.Y. 2021 - 2022 (First Semester)"
+        children={<EnrollmentTable />}
+      />
     </>
   )
 }
