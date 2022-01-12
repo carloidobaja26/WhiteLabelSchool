@@ -13,8 +13,9 @@ import { useEffect, useState } from "react"
 
 import * as scheduelHooks from "../../../core/hooks/schedule"
 import WhiteCardBox from "../../../components/cards/WhiteCardBox"
+import UserHeader from "../../../components/userHeader/UserHeader"
 
-const cardContent = (scheduletData, isPending, error, userDetails) => (
+const cardContent = (scheduletData, isPending, error) => (
   <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} aria-label="simple table">
       <TableHead>
@@ -58,22 +59,12 @@ const cardContent = (scheduletData, isPending, error, userDetails) => (
   </TableContainer>
 )
 
-const cardTable = (scheduletData, isPending, error, userDetails) => (
+const cardTable = (scheduletData, isPending, error) => (
   <React.Fragment>
     <CardContent>
-      {userDetails && (
-        <Typography
-          variant="h6"
-          component="h6"
-          gutterBottom
-          style={{ fontSize: "18px" }}
-        >
-          {`${userDetails[0].LastName}, ${userDetails[0].FirstName} (${userDetails[0].AccountId})`}
-        </Typography>
-      )}
-      <hr />
+    <UserHeader />
       <WhiteCardBox
-        card={cardContent(scheduletData, isPending, error, userDetails)}
+        card={cardContent(scheduletData, isPending, error)}
       />
     </CardContent>
   </React.Fragment>
@@ -82,7 +73,6 @@ const StudentScheduleTable = () => {
   const [scheduletData, setScheduletData] = useState(null)
   const [isPending, setIsPending] = useState(true)
   const [error, setError] = useState(null)
-  const [userDetails, setUserDetails] = useState("")
   useEffect(() => {
     fetchData()
     async function fetchData() {
@@ -93,16 +83,11 @@ const StudentScheduleTable = () => {
       if (userScheduleData.includes("error")) {
         setError(userScheduleData)
       }
-      let userDetailsData = await scheduelHooks.fetchUserDetails()
-      setUserDetails(userDetailsData)
-      if (userDetailsData.includes("error")) {
-        setError(userScheduleData)
-      }
     }
   }, [])
   return (
     <Card variant="outlined">
-      {cardTable(scheduletData, isPending, error, userDetails)}
+      {cardTable(scheduletData, isPending, error)}
     </Card>
   )
 }
