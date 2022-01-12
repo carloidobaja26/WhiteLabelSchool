@@ -21,7 +21,12 @@ const pages = [
   { name: "Grades", link: "/grades" },
   { name: "Forms", link: "/forms" },
 ]
-const settings = ["Profile", "Logout"]
+
+const settings = [
+  { name: "Profile", link: ""}, 
+  { name: "Change Password", link: "/change-password"}, 
+  { name: "Logout", link: ""}
+]
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
@@ -135,9 +140,12 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {settings.map(({ name, link }) => (
+                <MenuItem key={name} onClick={handleCloseNavMenu}>
+                  {/* <Typography textAlign="center">{setting}</Typography> */}
+                  <Typography textAlign="center">
+                  <StyledLink to={link}>{name}</StyledLink>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

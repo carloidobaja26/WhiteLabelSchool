@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/schedule" element={<Schedule />} />
         <Route exact path="/grades" element={<Grades />} />
         <Route exact path="/forms" element={<Forms />} />
-        <Route exact path="/password" element={<Password />} />
+        <Route exact path="/change-password" element={<Password />} />
       </Routes>
     </>
   )
