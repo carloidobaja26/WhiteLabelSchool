@@ -95,8 +95,6 @@ const StudentScheduleTable = () => {
       }
       let userDetailsData = await scheduelHooks.fetchUserDetails()
       setUserDetails(userDetailsData)
-      debugger
-      console.log(userDetails)
       if (userDetailsData.includes("error")) {
         setError(userScheduleData)
       }
