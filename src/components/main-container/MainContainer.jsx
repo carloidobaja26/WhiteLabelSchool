@@ -6,12 +6,13 @@ import * as React from "react"
 const MainContainer = ({ title, children }) => {
   return (
     <Container maxWidth="md">
-      <Box sx={{ my: 2 }}>
+      <Box sx={{ my: 4 }}>
         <Typography
           variant="h4"
           component="h4"
           gutterBottom
           style={{ fontSize: "24px" }}
+          sx={{ my: 2 }}
         >
           {title}
         </Typography>
