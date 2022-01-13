@@ -1,11 +1,9 @@
-import React from "react"
+import * as React from "react"
+import GradeTable from "./components/GradeTable"
+import MainContainer from "../../components/main-container/MainContainer"
 
 const Grades = () => {
-  return (
-    <>
-      <h1>Grades</h1>
-    </>
-  )
+  return <MainContainer title="Grades" children={<GradeTable />} />
 }
 
 export default Grades

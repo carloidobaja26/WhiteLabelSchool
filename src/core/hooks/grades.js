@@ -1,7 +1,7 @@
 import axios from "axios"
-export async function fetchUserSchedule() {
+export async function fetchUserGrades() {
     try {
-      const result = await axios.get("https://retoolapi.dev/u17D2U/data");
+      const result = await axios.get("https://retoolapi.dev/26h3Nf/data");
       return result.data
     } catch (error) {
       console.error(error);
