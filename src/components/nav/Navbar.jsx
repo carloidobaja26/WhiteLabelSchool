@@ -12,9 +12,9 @@ import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import { StyledLink } from "./styled-components"
-
+import { Outlet } from 'react-router-dom';
 const pages = [
-  { name: "Home", link: "/" },
+  { name: "Home", link: "/home" },
   { name: "Enrollment", link: "/enrollment" },
   { name: "Accounts", link: "/accounts" },
   { name: "Schedule", link: "/schedule" },
@@ -48,6 +48,7 @@ const ResponsiveAppBar = () => {
   }
 
   return (
+    <>
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -153,6 +154,8 @@ const ResponsiveAppBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
+    <Outlet />
+    </>
   )
 }
 export default ResponsiveAppBar
