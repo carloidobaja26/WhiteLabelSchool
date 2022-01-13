@@ -10,14 +10,42 @@ import TableHead from "@mui/material/TableHead"
 import TableRow from "@mui/material/TableRow"
 import Paper from "@mui/material/Paper"
 import Grid from "@mui/material/Grid"
-
 import { useEffect, useState } from "react"
-
-import * as scheduelHooks from "../../../core/hooks/schedule"
+import * as gradeHooks from "../../../core/hooks/grades"
 import WhiteCardBox from "../../../components/cards/WhiteCardBox"
 import UserHeader from "../../../components/userHeader/UserHeader"
-
-const cardContent = (scheduletData, isPending, error) => (
+import Curriculumn from "./Curriculum"
+const GradeTable = () => {
+    const [userGrade, setGrade] = useState(null)
+    const [isPending, setIsPending] = useState(true)
+    const [error, setError] = useState(null)
+    useEffect(() => {
+        fetchData()
+        async function fetchData() {
+            let userGradeData = await gradeHooks.fetchUserGrades()
+            setGrade(userGradeData)
+            setIsPending(false)
+            if (userGradeData.includes("error")) {
+                setError(userGradeData)
+            }
+        }
+    }, [])
+    return (
+        <Card variant="outlined">{cardTable(userGrade, isPending, error)}</Card>
+    )
+}
+const cardTable = (userGrade, isPending, error) => (
+    <React.Fragment>
+        <CardContent>
+            <UserHeader />
+            <Typography variant="h6" component="h6" gutterBottom align="right" sx={{ pt: 2 }}> 
+                <Curriculumn/>
+            </Typography>
+            <WhiteCardBox card={cardContent(userGrade, isPending, error)} />
+        </CardContent>
+    </React.Fragment>
+)
+const cardContent = (userGrade, isPending, error) => (
     <>
         <Typography variant="h6" component="h6" gutterBottom style={{ fontSize: "16px" }}>
             <Grid container spacing={2}>
@@ -60,22 +88,23 @@ const cardContent = (scheduletData, isPending, error) => (
                 )}
                 {error && (
                     <Typography variant="h6" component="h6" gutterBottom>
-                        Error {scheduletData}
+                        Error {userGrade}
                     </Typography>
                 )}
                 <TableBody>
-                    {scheduletData &&
-                        scheduletData.map((data) => (
+                    {userGrade &&
+                        userGrade.map((data) => (
                             <TableRow>
                                 <TableCell component="th" scope="row">
                                     {data.id}
                                 </TableCell>
                                 <TableCell align="right">{data.SubjectCode}</TableCell>
                                 <TableCell align="right">{data.Description}</TableCell>
-                                <TableCell align="right">{data.Lec}</TableCell>
-                                <TableCell align="right">{data.Lab}</TableCell>
-                                <TableCell align="right">{data.Unit}</TableCell>
-                                <TableCell align="right">{data.Schedule}</TableCell>
+                                <TableCell align="right">{data.FacultyName}</TableCell>
+                                <TableCell align="right">{data.Units}</TableCell>
+                                <TableCell align="right">{data.SectCode}</TableCell>
+                                <TableCell align="right">{data.FinalGrade}</TableCell>
+                                <TableCell align="right">{data.GradeStatus}</TableCell>
                             </TableRow>
                         ))}
                 </TableBody>
@@ -83,35 +112,5 @@ const cardContent = (scheduletData, isPending, error) => (
         </TableContainer>
     </>
 )
-const cardTable = (scheduletData, isPending, error) => (
-    <React.Fragment>
-        <CardContent>
-            <UserHeader />
-            <Typography variant="h6" component="h6" gutterBottom align="right" sx={{ pt: 2 }}>
-                Curriculumn Evaluation
-            </Typography>
-            <WhiteCardBox card={cardContent(scheduletData, isPending, error)} />
-        </CardContent>
-    </React.Fragment>
-)
-const GradeTable = () => {
-    const [scheduletData, setScheduletData] = useState(null)
-    const [isPending, setIsPending] = useState(true)
-    const [error, setError] = useState(null)
-    useEffect(() => {
-        fetchData()
-        async function fetchData() {
-            let userScheduleData = await scheduelHooks.fetchUserSchedule()
-            console.log(userScheduleData)
-            setScheduletData(userScheduleData)
-            setIsPending(false)
-            if (userScheduleData.includes("error")) {
-                setError(userScheduleData)
-            }
-        }
-    }, [])
-    return (
-        <Card variant="outlined">{cardTable(scheduletData, isPending, error)}</Card>
-    )
-}
+
 export default GradeTable
