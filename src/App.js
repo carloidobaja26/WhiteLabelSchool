@@ -8,12 +8,11 @@ import Schedule from "./features/schedule/Schedule"
 import Grades from "./features/grades/Grades"
 import Forms from "./features/forms/Forms"
 import Password from "./features/password/Password"
-
+import Login from "./features/login/Login"
 function App() {
   return (
     <>
       <Navbar />
-
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/enrollment" element={<Enrollment />} />
@@ -22,6 +21,7 @@ function App() {
         <Route exact path="/grades" element={<Grades />} />
         <Route exact path="/forms" element={<Forms />} />
         <Route exact path="/change-password" element={<Password />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
     </>
   )
