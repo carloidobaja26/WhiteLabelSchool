@@ -8,6 +8,7 @@ import Schedule from "./features/schedule/Schedule"
 import Grades from "./features/grades/Grades"
 import Forms from "./features/forms/Forms"
 import Password from "./features/password/Password"
+import Profile from "./features/profile/Profile"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/grades" element={<Grades />} />
         <Route exact path="/forms" element={<Forms />} />
         <Route exact path="/change-password" element={<Password />} />
+        <Route exact path="/profile" element={<Profile />} />
       </Routes>
     </>
   )
