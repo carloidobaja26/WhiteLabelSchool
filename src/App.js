@@ -8,22 +8,35 @@ import Schedule from "./features/schedule/Schedule"
 import Grades from "./features/grades/Grades"
 import Forms from "./features/forms/Forms"
 import Password from "./features/password/Password"
-
+import Login from "./features/login/Login"
 function App() {
   return (
-    <>
-      <Navbar />
-
-      <Routes>
-        <Route exact path="/" element={<Home />} />
+    <Routes>
+      <Route path="/" element={<Login />} >
+      </Route>
+      <Route path="/home" element={<Navbar />} >
+        <Route exact path="/home" element={<Home />} />
+      </Route>
+      <Route path="/enrollment" element={<Navbar />} >
         <Route exact path="/enrollment" element={<Enrollment />} />
+      </Route>
+      <Route path="/accounts" element={<Navbar />} >
         <Route exact path="/accounts" element={<Accounts />} />
+      </Route>
+      <Route path="/schedule" element={<Navbar />} >
         <Route exact path="/schedule" element={<Schedule />} />
+      </Route>
+      <Route path="/grades" element={<Navbar />} >
         <Route exact path="/grades" element={<Grades />} />
+      </Route>
+      <Route path="/forms" element={<Navbar />} >
         <Route exact path="/forms" element={<Forms />} />
+      </Route>
+      <Route path="/change-password" element={<Navbar />} >
         <Route exact path="/change-password" element={<Password />} />
-      </Routes>
-    </>
+      </Route>
+      <Route exact path="/login" element={<Login />} />
+    </Routes>
   )
 }
 
