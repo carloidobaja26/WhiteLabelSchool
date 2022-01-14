@@ -36,7 +36,7 @@ const LoginForm = () => {
             <Typography 
             style={{fontSize: "16px"}} 
             variant="h6" component="h6" gutterBottom >
-              Enter your user and password
+              Enter your username and password
             </Typography>
             <FormControl sx={{ m: 1 }} variant="outlined" 
             style={{ width: '90%' }}
