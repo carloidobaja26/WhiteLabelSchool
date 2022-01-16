@@ -1,0 +1,102 @@
+[
+    {
+        "SubjectCode": "SUB_65",
+        "Description": "OS",
+        "FacultyName": "Richardo Moakes",
+        "Units": "1.25",
+        "SectCode": "BSCOE 1-3D",
+        "FinalGrade": "3.0",
+        "GradeStatus": "P",
+        "id": 1
+    },
+    {
+        "SubjectCode": "SUB_204",
+        "Description": "Data Structure",
+        "FacultyName": "Inga Hessel",
+        "Units": "2.25",
+        "SectCode": "BSCOE 1-3D",
+        "FinalGrade": "2.75",
+        "GradeStatus": "P",
+        "id": 2
+    },
+    {
+        "SubjectCode": "SUB_942",
+        "Description": "Design 1",
+        "FacultyName": "Nicholas Duquesnay",
+        "Units": "2.25",
+        "SectCode": "BSCOE 2-1C",
+        "FinalGrade": "2.0",
+        "GradeStatus": "INC",
+        "id": 3
+    },
+    {
+        "SubjectCode": "SUB_416",
+        "Description": "Data Structure",
+        "FacultyName": "Josie Swatridge",
+        "Units": "3.0",
+        "SectCode": "BSCOE 1-2D",
+        "FinalGrade": "2.5",
+        "GradeStatus": "P",
+        "id": 4
+    },
+    {
+        "SubjectCode": "SUB_811",
+        "Description": "Data Structure",
+        "FacultyName": "Luke Egdale",
+        "Units": "3.0",
+        "SectCode": "BSCOE 2-1C",
+        "FinalGrade": "2.75",
+        "GradeStatus": "P",
+        "id": 5
+    },
+    {
+        "SubjectCode": "SUB_28",
+        "Description": "Design 1",
+        "FacultyName": "Joan Schirak",
+        "Units": "2.25",
+        "SectCode": "BSCOE 2-1C",
+        "FinalGrade": "2.75",
+        "GradeStatus": "P",
+        "id": 6
+    },
+    {
+        "SubjectCode": "SUB_195",
+        "Description": "Design 1",
+        "FacultyName": "Almeda Hammerson",
+        "Units": "2.25",
+        "SectCode": "BSCOE 2-1C",
+        "FinalGrade": "2.75",
+        "GradeStatus": "P",
+        "id": 7
+    },
+    {
+        "SubjectCode": "SUB_941",
+        "Description": "Design 1",
+        "FacultyName": "Pepi Blackmoor",
+        "Units": "1.5",
+        "SectCode": "BSCOE 1-2D",
+        "FinalGrade": "3.0",
+        "GradeStatus": "P",
+        "id": 8
+    },
+    {
+        "SubjectCode": "SUB_635",
+        "Description": "Data Structure",
+        "FacultyName": "Chloe Alvy",
+        "Units": "2.25",
+        "SectCode": "BSCOE 2-1C",
+        "FinalGrade": "2.0",
+        "GradeStatus": "INC",
+        "id": 9
+    },
+    {
+        "SubjectCode": "SUB_628",
+        "Description": "Design 1",
+        "FacultyName": "Cosette Cafe",
+        "Units": "2.25",
+        "SectCode": "BSCOE 1-2D",
+        "FinalGrade": "2.75",
+        "GradeStatus": "INC",
+        "id": 10
+    }
+]

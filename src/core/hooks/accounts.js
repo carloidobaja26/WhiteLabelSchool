@@ -1,7 +1,7 @@
 import axios from "axios"
-export async function fetchUserGrades() {
+export async function fetchUserAccount() {
     try {
-      const result = await axios.get("https://mocki.io/v1/2e3e07c1-da23-42df-91c0-93fd7bd0c844");
+      const result = await axios.get("https://mocki.io/v1/4b26a47d-5052-46d3-8195-fa1990e879d9");
       return result.data
     } catch (error) {
       console.error(error);
