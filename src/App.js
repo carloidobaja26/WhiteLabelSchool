@@ -8,6 +8,8 @@ import Schedule from "./features/schedule/Schedule"
 import Grades from "./features/grades/Grades"
 import Forms from "./features/forms/Forms"
 import Password from "./features/password/Password"
+import Profile from "./features/profile/Profile"
+
 import Login from "./features/login/Login"
 function App() {
   return (
@@ -32,8 +34,11 @@ function App() {
       <Route path="/forms" element={<Navbar />} >
         <Route exact path="/forms" element={<Forms />} />
       </Route>
-      <Route path="/change-password" element={<Navbar />} >
-        <Route exact path="/change-password" element={<Password />} />
+      <Route path="/profile" element={<Navbar />} >
+        <Route exact path="/profile" element={<Profile />} />
+      </Route>
+      <Route path="/password" element={<Navbar />} >
+        <Route exact path="/password" element={<Password />} />
       </Route>
       <Route exact path="/login" element={<Login />} />
     </Routes>
