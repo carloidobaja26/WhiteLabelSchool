@@ -1,9 +1,13 @@
 import React from "react"
-
+import MainContainer from "../../components/main-container/MainContainer"
+import AccountInformation from "./components/AccountInformation"
 const Accounts = () => {
   return (
     <>
-      <h1>Accounts</h1>
+      <MainContainer
+        title="Accounts"
+        children={<AccountInformation />}
+      />
     </>
   )
 }

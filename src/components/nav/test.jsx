@@ -22,9 +22,9 @@ const pages = [
   { name: "Forms", link: "/forms" },
 ]
 
-const profileSettings = [
-  { name: "Profile", link: "/profile"}, 
-  { name: "Change Password", link: "/password"}, 
+const settings = [
+  { name: "Profile", link: "/home"}, 
+  { name: "Change Password", link: "/change-password"}, 
   { name: "Logout", link: "/login"}
 ]
 
@@ -48,7 +48,6 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null)
   }
   const navigateTo = (test) => {
-    navigate(test)
     alert(test)
   }
   return (
@@ -145,9 +144,11 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {profileSettings.map(({ name, link }) => (
+              {settings.map(({ name, link }) => (
                 <MenuItem key={name} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"onClick={()=>navigateTo(link)}>{name}
+                  {/* <Typography textAlign="center">{setting}</Typography> */}
+                  <Typography textAlign="center">
+                  <Typography onClick={()=>navigateTo(link)}>{name}</Typography>
                   </Typography>
                 </MenuItem>
               ))}

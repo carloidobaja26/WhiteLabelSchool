@@ -26,7 +26,7 @@ const UserHeader = () => {
           gutterBottom
           style={{ fontSize: "18px" }}
         >
-          {`${userDetails[0].Name} (${userDetails[0].StudentNumber })`}
+          {`${userDetails[0].Name} (${userDetails[0].StudentNumber})`}
         </Typography>
       )}
       <hr />

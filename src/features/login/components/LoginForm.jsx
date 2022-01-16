@@ -10,8 +10,13 @@ import InputLabel from "@mui/material/InputLabel";
 import KeyIcon from "@mui/icons-material/Key";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Typography from "@mui/material/Typography";
-
-const PasswordForm = () => {
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import { useNavigate } from 'react-router-dom';
+const LoginForm = () => {
+  const navigate = useNavigate()
+  const logInClick = () => {
+    navigate('/home')
+  }
   return (
     <Box
       display="grid"
@@ -31,57 +36,40 @@ const PasswordForm = () => {
             <Typography 
             style={{fontSize: "16px"}} 
             variant="h6" component="h6" gutterBottom >
-              Enter your old and new password
+              Enter your username and password
             </Typography>
-
             <FormControl sx={{ m: 1 }} variant="outlined" 
             style={{ width: '90%' }}
             >
-              <InputLabel htmlFor="outlined-adornment-password">
-                Old Password
+              <InputLabel htmlFor="outlined-username">
+                User Name
               </InputLabel>
               <OutlinedInput
-                id="outlined-adornment-password"
+                id="outlined-username"
                 endAdornment={
                   <InputAdornment position="end">
-                    <KeyIcon />
+                    <AccountCircle />
                   </InputAdornment>
                 }
-                label="Old Password"
+                label="User Name"
               />
             </FormControl>
-
-            <FormControl sx={{ m: 1 }} variant="outlined" style={{ width: '90%' }}>
-              <InputLabel htmlFor="outlined-adornment-password">
-                New Password
-              </InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                endAdornment={
-                  <InputAdornment position="end">
-                    <KeyIcon />
-                  </InputAdornment>
-                }
-                label="New Password" 
-              />
-            </FormControl>
-
             <FormControl sx={{ m: 1}} variant="outlined" style={{ width: '90%' }}>
               <InputLabel htmlFor="outlined-adornment-password">
-                Confirm Password
+                Password
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-password"
+                type="password"
                 endAdornment={
                   <InputAdornment position="end">
                     <KeyIcon />
                   </InputAdornment>
                 }
-                label="Confirm Password"
+                label="Password"
               />
             </FormControl>
-
-            <Button variant="contained" sx={{ m: 1 }} >Change Password</Button>
+            <Button variant="contained" sx={{ m: 1 }} onClick={logInClick}>Login</Button>
           </Grid>
         </CardContent>
       </Card>
@@ -89,4 +77,4 @@ const PasswordForm = () => {
   );
 };
 
-export default PasswordForm;
+export default LoginForm;

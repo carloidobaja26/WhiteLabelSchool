@@ -1,9 +1,13 @@
 import React from "react"
-
+import MainContainer from "../../components/main-container/MainContainer"
+import FormTable from "./components/FormTable"
 const Forms = () => {
   return (
     <>
-      <h1>Forms</h1>
+      <MainContainer
+        title="Form"
+        children={<FormTable />}
+      />
     </>
   )
 }
