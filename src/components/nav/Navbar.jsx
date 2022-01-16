@@ -24,7 +24,7 @@ const pages = [
 
 const settings = [
   { name: "Profile", link: "/profile"}, 
-  { name: "Change Password", link: "/change-password"}, 
+  // { name: "Change Password", link: "/password"}, 
   { name: "Logout", link: "/"}
 ]
 
