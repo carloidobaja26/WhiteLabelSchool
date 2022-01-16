@@ -1,0 +1,112 @@
+[
+    {
+        "Semester": "Summer",
+        "Scholaship": "DOST",
+        "SchoolYear": "1005",
+        "ORDate": "Jul 24, 2020 7:19 PM",
+        "ORNumber": "Total Amount Due",
+        "Assessment": "4302",
+        "Payment": "4576",
+        "Balance": "2475",
+        "id": "1"
+    },
+    {
+        "Semester": "Summer",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1009",
+        "ORDate": "May 29, 2021 6:04 AM",
+        "ORNumber": "Total Due",
+        "Assessment": "2155",
+        "Payment": "4900",
+        "Balance": "4368",
+        "id": "2"
+    },
+    {
+        "Semester": "First Semester",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1003",
+        "ORDate": "Aug 1, 2020 9:16 AM",
+        "ORNumber": "Cash Upon Enrollment",
+        "Assessment": "2435",
+        "Payment": "2606",
+        "Balance": "2803",
+        "id": "3"
+    },
+    {
+        "Semester": "First Semester",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1007",
+        "ORDate": "Jul 24, 2020 8:39 AM",
+        "ORNumber": "Total Amount Due",
+        "Assessment": "4731",
+        "Payment": "3813",
+        "Balance": "3848",
+        "id": "4"
+    },
+    {
+        "Semester": "First Semester",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1007",
+        "ORDate": "Jan 7, 2020 8:24 AM",
+        "ORNumber": "Cash Upon Enrollment",
+        "Assessment": "4672",
+        "Payment": "3318",
+        "Balance": "4226",
+        "id": "5"
+    },
+    {
+        "Semester": "Summer",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1003",
+        "ORDate": "Oct 9, 2020 4:00 AM",
+        "ORNumber": "Cash Upon Enrollment",
+        "Assessment": "3921",
+        "Payment": "2105",
+        "Balance": "2820",
+        "id": "6"
+    },
+    {
+        "Semester": "Second Semester",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1008",
+        "ORDate": "Dec 18, 2020 1:26 PM",
+        "ORNumber": "Cash Upon Enrollment",
+        "Assessment": "3622",
+        "Payment": "3380",
+        "Balance": "4624",
+        "id": "7"
+    },
+    {
+        "Semester": "Second Semester",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1007",
+        "ORDate": "Nov 9, 2021 9:23 AM",
+        "ORNumber": "Total Due",
+        "Assessment": "2574",
+        "Payment": "2104",
+        "Balance": "4329",
+        "id": "8"
+    },
+    {
+        "Semester": "First Semester",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1007",
+        "ORDate": "Jul 26, 2021 10:12 PM",
+        "ORNumber": "Cash Upon Enrollment",
+        "Assessment": "4722",
+        "Payment": "4041",
+        "Balance": "3751",
+        "id": "9"
+    },
+    {
+        "Semester": "Summer",
+        "Scholaship": "FullScholar",
+        "SchoolYear": "1000",
+        "ORDate": "Jan 27, 2021 1:34 PM",
+        "ORNumber": "Total Due",
+        "Assessment": "3443",
+        "Payment": "2200",
+        "Balance": "4636",
+        "id": "10"
+    }
+]
