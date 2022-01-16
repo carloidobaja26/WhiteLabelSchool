@@ -49,7 +49,6 @@ const ResponsiveAppBar = () => {
   }
   const navigateTo = (test) => {
     navigate(test)
-    alert(test)
   }
   return (
     <>
