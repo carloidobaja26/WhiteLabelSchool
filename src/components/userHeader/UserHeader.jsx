@@ -10,7 +10,7 @@ const UserHeader = () => {
     fetchData()
     async function fetchData() {
       let userDetailsData = await fetchUserDetails()
-      setUserDetails(userDetailsData)
+      setUserDetails(userDetailsData);
       if (userDetailsData.includes("error")) {
         setError(userDetails)
       }
@@ -26,7 +26,7 @@ const UserHeader = () => {
           gutterBottom
           style={{ fontSize: "18px" }}
         >
-          {`${userDetails[0].Name} (${userDetails[0].StudentNumber})`}
+          {`${userDetails[0].lastName}, ${userDetails[0].firstName} (${userDetails[0].studentNo})`}
         </Typography>
       )}
       <hr />
