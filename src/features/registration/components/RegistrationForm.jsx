@@ -15,17 +15,41 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import * as studentHook from "../../../core/hooks/studentInfo";
 const RegistrationForm = () => {
-  const [sex, setAge] = useState(1);
+  const [sex, setSex] = useState(1);
   const [courseDescription, setCourseDescription] = useState(1);
   const [schoolYear, setSchoolYear] = useState(1);
   const [schoolSemester, setSchoolSemester] = useState(1);
-  const [firstName, setChangeFirstName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [middleName, setMiddleName] = useState('');
+  const [mobileNo, setMobileNo] = useState('');
+  const [password, setPassword] = useState('');
+  const [perAddress, setPerAddress] = useState('');
+  const [placeOfBirth, setPlaceOfBirth] = useState('');
+  const [resAddress, setResAddress] = useState('');
+  const [email, setEmail] = useState('');
+  // const [studentInfoObj, setStudentInfoObj] = useEffect<''>({});
   useEffect(() => {
-    console.log(firstName)
+    let studentInfo = {
+      sex: sex,
+      courseDescription : courseDescription,
+      schoolYear: schoolYear,
+      firstName: firstName,
+      lastName: lastName,
+      middleName: middleName,
+      mobileNo: mobileNo,
+      password: password,
+      perAddress: perAddress,
+      placeOfBirth: placeOfBirth,
+      resAddress: resAddress,
+      email: email
+    }
+    // setStudentInfoObj(studentInfo);
   });
   const changeGender = (event) => {
-    setAge(event.target.value);
+    setSex(event.target.value);
   };
   const changeCourse = (event) => {
     setCourseDescription(event.target.value);
@@ -37,12 +61,66 @@ const RegistrationForm = () => {
     setSchoolSemester(event.target.value);
   };
   const changeFirstName = (event) => {
-    setChangeFirstName(event.target.value)
-    // console.log(firstName)
+    setFirstName(event.target.value)
+  }
+  const changeLastName = (event) => {
+    setLastName(event.target.value)
+  }
+  const changeMiddleName = (event) => {
+    setMiddleName(event.target.value)
+  }
+  const changeMobileNo = (event) => {
+    setMobileNo(event.target.value)
+  }
+  const changePassword = (event) => {
+    setPassword(event.target.value)
+  }
+  const changePerAddress = (event) => {
+    setPerAddress(event.target.value)
+  }
+  const changePlaceOfBirth = (event) => {
+    setPlaceOfBirth(event.target.value)
+  }
+  const changeResAddress = (event) => {
+    setResAddress(event.target.value)
+  }
+  const changeEmail = (event) => {
+    setEmail(event.target.value)
   }
   const navigate = useNavigate()
   const createStudentInfo = () => {
-    navigate('/home')
+    if(sex == '' || courseDescription == ''
+    || schoolYear == ''
+    || firstName == ''
+    || lastName == ''
+    || middleName == ''
+    || mobileNo == ''
+    || password == ''
+    || perAddress == ''
+    || placeOfBirth == ''
+    || resAddress == ''
+    || email == ''
+    || schoolSemester == ''){
+      alert("please fill all input")
+    }
+    else {
+      let studentInfo = {
+        gender: sex,
+        courseAndDescription : courseDescription,
+        schoolYearId: schoolYear,
+        firstName: firstName,
+        lastName: lastName,
+        middleName: middleName,
+        mobileNo: mobileNo,
+        password: password,
+        permanentAddress: perAddress,
+        placeOfBirth: placeOfBirth,
+        residentialAddress: resAddress,
+        email: email,
+        schoolSemesterId: schoolSemester
+      }
+      studentHook.addStudentInfo(studentInfo);
+    }
   }
   return (
     <Box
@@ -59,7 +137,6 @@ const RegistrationForm = () => {
             alignItems="center"
             justify="center"
           >
-
             <Typography
               style={{ fontSize: "16px" }}
               variant="h6" component="h6" gutterBottom >
@@ -73,7 +150,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
-                onChange={changeFirstName.bind(this)}
+                onChange={changeFirstName}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
@@ -90,6 +167,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
+                onChange={changeLastName}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
@@ -106,6 +184,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
+                onChange={changeMiddleName}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
@@ -120,6 +199,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-password"
+                onChange={changePassword}
                 type="password"
                 endAdornment={
                   <InputAdornment position="end">
@@ -150,6 +230,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
+                onChange={changePlaceOfBirth}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
@@ -166,6 +247,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
+                onChange={changeMobileNo}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
@@ -182,6 +264,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
+                onChange={changeEmail}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
@@ -198,6 +281,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
+                onChange={changeResAddress}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
@@ -214,6 +298,7 @@ const RegistrationForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
+                onChange={changePerAddress}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
