@@ -12,10 +12,34 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Typography from "@mui/material/Typography";
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import * as logInHook from "../../../core/hooks/login";
+
 const LoginForm = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate()
-  const logInClick = () => {
-    navigate('/home')
+  const changeEmail = (event) => {
+    setEmail(event.target.value)
+  }
+  const changePassword = (event) => {
+    setPassword(event.target.value)
+  }
+  const logInClick = async () => {
+    let studentInfo = {
+      email: email,
+      password: password
+    }
+    const result = await logInHook.logInStudent(studentInfo);
+    if(result.success) {
+      navigate('/home')
+    }
+    else {
+      alert(result.message)
+    }
+  }
+  const registrationClick = () => {
+    navigate('/registration')
   }
   return (
     <Box
@@ -46,6 +70,7 @@ const LoginForm = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-username"
+                onChange={changeEmail}
                 endAdornment={
                   <InputAdornment position="end">
                     <AccountCircle />
@@ -61,6 +86,7 @@ const LoginForm = () => {
               <OutlinedInput
                 id="outlined-adornment-password"
                 type="password"
+                onChange={changePassword}
                 endAdornment={
                   <InputAdornment position="end">
                     <KeyIcon />
@@ -70,6 +96,7 @@ const LoginForm = () => {
               />
             </FormControl>
             <Button variant="contained" sx={{ m: 1 }} onClick={logInClick}>Login</Button>
+            <Button variant="contained" sx={{ m: 1 }} onClick={registrationClick}>Registration</Button>
           </Grid>
         </CardContent>
       </Card>

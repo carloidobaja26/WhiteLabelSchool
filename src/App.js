@@ -9,6 +9,7 @@ import Grades from "./features/grades/Grades"
 import Forms from "./features/forms/Forms"
 import Password from "./features/password/Password"
 import Profile from "./features/profile/Profile"
+import Registration from "./features/registration/Registration"
 
 import Login from "./features/login/Login"
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route exact path="/password" element={<Password />} />
       </Route>
       <Route exact path="/login" element={<Login />} />
+      <Route exact path="/registration" element={<Registration />} />
     </Routes>
   )
 }
